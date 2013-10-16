@@ -3,7 +3,7 @@ html, body
 	padding: 0px;
 	margin: 0px;
 	background-color: #333;
-	color: #EEE;
+	color: #DDD;
 	height: 100%;
 	font: 1em "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -32,11 +32,24 @@ nav
 		li
 		{
 			float: left;
+			vertical-align: middle;
+			margin-right: 20px;
+			line-height: 60px;
 
 			a
 			{
-				color: #EEE;
+				color: #DDD;
 				text-decoration: none;	
+			}
+
+			a:hover, a.current
+			{
+				color: #FFF;
+			}
+
+			a.current
+			{
+				cursor: default;
 			}
 		}
 	}

@@ -5,8 +5,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-release');
   grunt.loadNpmTasks('grunt-markdown');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
 
   // Temp dir
@@ -22,6 +24,18 @@ module.exports = function(grunt) {
         src: ['build', 'dist']
       }
     },
+    copy: {
+      build: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/',
+            src: '*',
+            dest: 'build/'
+          }
+        ]
+      }
+    },
     markdown: {
       build: {
         files: [
@@ -35,8 +49,13 @@ module.exports = function(grunt) {
         ],
         options: {
           template: 'src/template/site.html',
+          preCompile: function (src, context)
+          {
+            grunt.log.error(src);
+          },
           markdownOptions: {
-            gfm: true
+            gfm: true,
+            highlight: 'manual'
           }
         }
       }
@@ -48,16 +67,29 @@ module.exports = function(grunt) {
         }
       }
     },
+    imagemin: {
+      build: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/template/',
+            src: '**/*.{png,jpg,gif}',
+            dest: 'build/'
+          }
+        ]
+      }
+    },
     watch: {
       main: {
           files: ['*.*', 'src/**/*.*'],
           tasks: 'build'
       }
     },
-    release: {
+  'gh-pages': {
       options: {
-        npm: false
-      }
+        base: 'build'
+      },
+      src: ['**']
     }
   });
 
@@ -66,13 +98,15 @@ module.exports = function(grunt) {
   // Tasks
   grunt.registerTask('build', [
         'clean',
+        'copy',
         'markdown',
-        'less'
+        'less',
+        'imagemin'
   ]);
 
   grunt.registerTask('deploy', [
         'build',
-        'release'
+        'gh-pages'
   ]);
 
   grunt.registerTask('default', [
