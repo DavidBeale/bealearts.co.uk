@@ -1,1 +1,4 @@
+{
+	"page": "About"
+}
 About

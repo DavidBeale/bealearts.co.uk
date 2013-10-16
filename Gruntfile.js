@@ -30,7 +30,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'src/',
-            src: '*',
+            src: 'CNAME',
             dest: 'build/'
           }
         ]
@@ -49,10 +49,7 @@ module.exports = function(grunt) {
         ],
         options: {
           template: 'src/template/site.html',
-          preCompile: function (src, context)
-          {
-            grunt.log.error(src);
-          },
+          preCompile: parseMetadata,
           markdownOptions: {
             gfm: true,
             highlight: 'manual'
@@ -113,5 +110,43 @@ module.exports = function(grunt) {
         'build'
   ]);
 
+
+
+
+  function parseMetadata(src, context)
+  {
+    // Add Metadata
+    if (src.length !== 0 && src[0] === '{')
+    {
+      var end = src.indexOf('\n}');
+      var metadata = src.substring(0, end+2);
+      src = src.substring(end+2);
+
+      grunt.log.debug('src: ' + src);
+      grunt.log.debug('metadata: ' + metadata);
+
+      context.metadata = JSON.parse(metadata);
+    }
+    else
+      context.metadata = {};
+    
+
+    // Add template functions
+    context.iff = function iff(condition, text, elseText)
+    {
+      if (!elseText)
+        elseText = '';
+
+      return condition ? text : elseText;
+    };
+
+    context.include = function include(filePath)
+    {
+      return grunt.file.read(filePath);
+    };
+
+
+    return src;
+  }
 
 };

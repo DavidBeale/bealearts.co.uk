@@ -58,18 +58,24 @@ nav
 
 header
 {
-	height: 350px;
-	padding-top: 50px;
+	height: 200px;
 	background: #035096;
 	background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);
+	color: #EEE;
 	text-align: center;
-	font: 3em "proxima-nova-soft", "Helvetica Neue", Helvetica, sans-serif;
+	font: 3em "Helvetica Neue", Helvetica, sans-serif;
 
 	p
 	{
 		margin-top: 0px;
 		margin-bottom: 20px;
 	}
+}
+
+header.home
+{
+	padding-top: 50px;
+	height: 350px;	
 }
 
 footer
@@ -95,5 +101,54 @@ article
 	margin-left: auto;
 	margin-right: auto;
 	width: 1024px;
-	padding-bottom: -100px;
+	padding-bottom: 120px;
+
+	h1
+	{
+		font-size: 2em;
+	}
+
+	a
+	{
+		color: #2370B6;
+		text-decoration: none;	
+	}
+
+	a:hover
+	{
+		color: #2C75FF;
+	}
+}
+
+
+ul.github
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	list-style: none;
+
+	li
+	{
+		padding: 10px;
+		margin: 0px;
+		margin-bottom: 10px;
+		background: #222;
+		background: linear-gradient(to bottom, #222 0%, #333 200%);	
+	}
+
+	p
+	{
+		margin: 0px;	
+	}
+
+	h2
+	{
+		margin-top: 0px;
+	}
+
+	img
+	{
+		float: right;
+	}
 }
