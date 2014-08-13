@@ -1,0 +1,4 @@
+[submodule "content"]
+    path = content
+    url = git://github.com/bealearts/bealearts.co.uk.wiki.git
+    branch = master
