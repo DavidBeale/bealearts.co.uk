@@ -1,4 +1,0 @@
-{
-	"page": "Blog"
-}
-Blog
