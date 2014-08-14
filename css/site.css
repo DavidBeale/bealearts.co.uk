@@ -15,6 +15,7 @@ nav {
   height: 60px;
   background: #222;
   background: linear-gradient(to bottom, #222222 0%, #333333 100%);
+  font-size: 1.2em;
 }
 nav ul {
   margin: 0px;
@@ -42,20 +43,24 @@ nav ul li a.current {
   cursor: default;
 }
 header {
-  height: 350px;
-  padding-top: 50px;
+  height: 200px;
   background: #035096;
   background: linear-gradient(to bottom, #035096 0%, #2c75ff 100%);
+  color: #EEE;
   text-align: center;
-  font: 3em "proxima-nova-soft", "Helvetica Neue", Helvetica, sans-serif;
+  font: 3em "Helvetica Neue", Helvetica, sans-serif;
 }
 header p {
   margin-top: 0px;
   margin-bottom: 20px;
 }
+header.home {
+  padding-top: 50px;
+  height: 350px;
+}
 footer {
   position: absolute;
-  height: 200px;
+  height: 100px;
   width: 100%;
   background: #222;
   background: linear-gradient(to bottom, #222222 0%, #333333 100%);
@@ -71,5 +76,37 @@ article {
   margin-left: auto;
   margin-right: auto;
   width: 1024px;
-  padding-bottom: -200px;
+  padding-bottom: 120px;
+}
+article h1 {
+  font-size: 2em;
+}
+article a {
+  color: #2370B6;
+  text-decoration: none;
+}
+article a:hover {
+  color: #2C75FF;
+}
+ul.github {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  list-style: none;
+}
+ul.github li {
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 10px;
+  background: #222;
+  background: linear-gradient(to bottom, #222222 0%, #333333 200%);
+}
+ul.github p {
+  margin: 0px;
+}
+ul.github h2 {
+  margin-top: 0px;
+}
+ul.github img {
+  float: right;
 }
