@@ -24,7 +24,8 @@ module.exports = function(grunt) {
     clean: {
       build: {
         src: ['build', 'dist']
-      }
+      },
+      tidy: ["build/*.html"]
     },
     copy: {
       build: {
@@ -34,6 +35,21 @@ module.exports = function(grunt) {
             cwd: 'src/',
             src: 'CNAME',
             dest: 'build/'
+          }
+        ]
+      },
+      rename: {
+        files: [
+          {
+            expand: true,
+            cwd: 'build/',
+            src: ['**/*.html'],
+            dest: 'build/',
+            rename: function(dest, src) {
+              var filename = path.basename(src);
+              var page = path.basename(src, '.html').toLowerCase();
+              return dest + src.replace(filename, page + '/index.html');
+            }
           }
         ]
       }
@@ -96,9 +112,11 @@ module.exports = function(grunt) {
 
   // Tasks
   grunt.registerTask('build', [
-        'clean',
-        'copy',
+        'clean:build',
+        'copy:build',
         'markdown',
+        'copy:rename',
+        'clean:tidy',
         'less',
         'imagemin'
   ]);

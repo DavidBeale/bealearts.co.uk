@@ -20,15 +20,15 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-watch": "~0.4.4",
-    "grunt-contrib-clean": "~0.5.0",
     "grunt-bower-task": "~0.2.3",
-    "temporary": "0.0.5",
-    "grunt-release": "~0.6.0",
-    "grunt-markdown": "lafka/grunt-markdown#lafka-meta-marked",
-    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-imagemin": "~0.3.0",
-    "grunt-gh-pages": "~0.8.0"
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-gh-pages": "~0.8.0",
+    "grunt-markdown": "lafka/grunt-markdown#lafka-meta-marked",
+    "grunt-release": "~0.6.0",
+    "temporary": "0.0.5"
   }
 }
