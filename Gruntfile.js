@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       build: {
         src: ['build', 'dist']
       },
-      tidy: ["build/*.html"]
+      tidy: ["build/*.htm"]
     },
     copy: {
       build: {
@@ -43,12 +43,20 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'build/',
-            src: ['**/*.html'],
+            src: ['**/*.htm'],
             dest: 'build/',
             rename: function(dest, src) {
               var filename = path.basename(src);
-              var page = path.basename(src, '.html').toLowerCase();
-              return dest + src.replace(filename, page + '/index.html');
+              var page = path.basename(src, '.htm').toLowerCase();
+
+              if (page == 'home')
+              {
+                return dest + src.replace(filename, 'index.html');
+              }
+              else  
+              {
+                return dest + src.replace(filename, page + '/index.html');
+              }
             }
           }
         ]
@@ -62,7 +70,7 @@ module.exports = function(grunt) {
             src: '**/*.md',
             dest: 'build/',
             cwd: 'src/content/',
-            ext: '.html'
+            ext: '.htm'
           }
         ],
         options: {
