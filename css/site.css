@@ -15,7 +15,7 @@ nav {
   height: 60px;
   background: #222;
   background: linear-gradient(to bottom, #222222 0%, #333333 100%);
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 nav ul {
   margin: 0px;
@@ -48,7 +48,7 @@ header {
   background: linear-gradient(to bottom, #035096 0%, #2c75ff 100%);
   color: #EEE;
   text-align: center;
-  font: 3.5em "Helvetica Neue", Helvetica, sans-serif;
+  font: 3em "Helvetica Neue", Helvetica, sans-serif;
 }
 header p {
   margin-top: 0px;
