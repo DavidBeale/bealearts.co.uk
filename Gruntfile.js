@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function(grunt) {
 
   // Libs
@@ -49,7 +51,7 @@ module.exports = function(grunt) {
         ],
         options: {
           template: 'src/template/site.html',
-          preCompile: parseMetadata,
+          preCompile: preCompile,
           markdownOptions: {
             gfm: true,
             highlight: 'manual'
@@ -113,29 +115,34 @@ module.exports = function(grunt) {
 
 
 
-  function parseMetadata(src, context)
+  function preCompile(src, context)
   {
-    // Add Metadata
-    if (src.length !== 0 && src[0] === '{')
+    // Add page title
+    if (context.src)
     {
-      var end = src.indexOf('\n}');
-      var metadata = src.substring(0, end+2);
-      src = src.substring(end+2);
+      context.page = path.basename(context.src, '.md');
 
-      grunt.log.debug('src: ' + src);
-      grunt.log.debug('metadata: ' + metadata);
-
-      context.metadata = JSON.parse(metadata);
+      grunt.log.debug('page: ' + context.page);
     }
     else
-      context.metadata = {};
-    
+    {
+      context.page = '';
+    }
+
+
+    grunt.log.debug('src: ' + src);
+    grunt.log.debug('context: ' + JSON.stringify(context));    
+
+
 
     // Add template functions
+
     context.iff = function iff(condition, text, elseText)
     {
       if (!elseText)
+      {
         elseText = '';
+      }
 
       return condition ? text : elseText;
     };

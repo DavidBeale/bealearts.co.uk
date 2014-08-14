@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>BealeARTS | <%=metadata.page%></title>
+    <title>BealeARTS | <%=page%></title>
 
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <link href="/css/site.css" rel="stylesheet" type="text/css" />
@@ -12,20 +12,22 @@
 	<section>
 		<nav>
 			<ul>
-				<li><a <%=iff((metadata.page === 'Home'), 'class="current" ')%>href="/">Home</a></li>
-				<li><a <%=iff((metadata.page === 'Blog'), 'class="current" ')%>href="http://old.bealearts.co.uk/blog/">Blog</a></li>
-				<li><a <%=iff((metadata.page === 'About'), 'class="current" ')%>href="/about/">About</a></li>
+				<li><a <%=iff((page === 'Home'), 'class="current" ')%>href="/">Home</a></li>
+				<li><a <%=iff((page === 'Blog'), 'class="current" ')%>href="http://old.bealearts.co.uk/blog/">Blog</a></li>
+				<li><a <%=iff((page === 'About'), 'class="current" ')%>href="/about/">About</a></li>
 			</ul> 
 		</nav>
 
-		<header <%=iff((metadata.page === 'Home'), 'class="home"')%>>
-			<%=iff((metadata.page === 'Home'), include('src/template/home-header.html'))%>
+		<header <%=iff((page === 'Home'), 'class="home"')%>>
+			<%=iff((page === 'Home'), include('src/template/home-header.html'))%>
 		</header>
 
-		<article><%=content%></article>
+		<article>
+			<%=content%>
+		</article>
 
 		<footer>
-			<p>Copyright &copy; 2013, David Beale</p>
+			<p>Copyright &copy; 2014, David Beale</p>
 		</footer>
 	</section>
   </body>
