@@ -19,15 +19,39 @@ module.exports = validate({
         publicPath: '/'
     },
     module: {
-        loaders: []
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    cacheDirectory: true
+                }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
+            },
+            {
+                test: /\.html$/,
+                loader: 'html'
+            },
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/
+            }
+        ]
     },
     plugins: [
         new PackageLoadersPlugin(),
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: '../static/index.html'
         }),
         new CopyWebpackPlugin([
-            {from: 'CNAME'}
-        ])
+            {from: '../static/**/*'}
+        ]),
+        new webpack.optimize.UglifyJsPlugin({minimize: true}),
+        new webpack.optimize.DedupePlugin()
     ]
 });
