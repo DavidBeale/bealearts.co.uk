@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = validate({
-    devtool: 'source-map',
     context: path.join(__dirname, 'src'),
     entry: {
         main: ['./site.js']
@@ -29,6 +28,14 @@ module.exports = validate({
                 }
             },
             {
+                test: /\.less$/,
+                loader: "style-loader!css-loader!less-loader"
+            },
+            {
+                test: /\.png$/,
+                loader: "url-loader?mimetype=image/png"
+            },
+            {
                 test: /\.json$/,
                 loader: 'json'
             },
@@ -46,12 +53,16 @@ module.exports = validate({
     plugins: [
         new PackageLoadersPlugin(),
         new HtmlWebpackPlugin({
-            template: '../static/index.html'
+            template: 'index.html'
         }),
         new CopyWebpackPlugin([
-            {from: '../static/**/*'}
+            {from: 'CNAME'}
         ]),
         new webpack.optimize.UglifyJsPlugin({minimize: true}),
         new webpack.optimize.DedupePlugin()
-    ]
+    ],
+    devtool: 'source-map',
+    devServer: {
+        contentBase: '../dist',
+    }
 });
