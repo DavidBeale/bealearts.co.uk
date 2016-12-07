@@ -36,12 +36,16 @@ module.exports = validate({
                 loader: "url-loader?mimetype=image/png"
             },
             {
+                test: /\.jpg$/,
+                loader: "url-loader?mimetype=image/jpeg"
+            },
+            {
                 test: /\.json$/,
                 loader: 'json'
             },
             {
                 test: /\.html$/,
-                loader: 'html'
+                loader: 'html?interpolate'
             },
             {
                 test: /\.js$/,
@@ -58,8 +62,8 @@ module.exports = validate({
         new CopyWebpackPlugin([
             {from: 'CNAME'}
         ]),
-        new webpack.optimize.UglifyJsPlugin({minimize: true}),
-        new webpack.optimize.DedupePlugin()
+        //new webpack.optimize.UglifyJsPlugin({minimize: true}),
+        //new webpack.optimize.DedupePlugin()
     ],
     devtool: 'source-map',
     devServer: {

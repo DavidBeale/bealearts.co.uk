@@ -9,7 +9,7 @@ html, body {
 
 section {
     position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 
 nav {
@@ -65,39 +65,69 @@ header {
 }
 
 footer {
-    position: absolute;
     height: 50px;
     width: 100%;
     background: #222;
     background: linear-gradient(to bottom, #222 0%, #333 100%);
-    bottom: 0px;
     color: #777;
-    border-top: 3px solid #035096;
 
     p {
+        padding-top: 10px;
         margin-left: auto;
         margin-right: auto;
         width: 1024px;
     }
 }
 
+div#content {
+    min-height: 90%;
+}
+
 article {
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
-    padding-bottom: 120px;
-    font-size: 1.1em;
 
-    h1 {
-        font-size: 2em;
+    section {
+        margin: 30px;
+        padding: 20px;
+        font-size: 1.1em;
+        background: #282828;
+        background: linear-gradient(to bottom, #222 0%, #282828 100%);
+
+        h2 {
+            font: 1.5em "Helvetica Neue", Helvetica, sans-serif;
+            margin-top: 0px;
+
+            a {
+                color: inherit;
+            }
+
+            a:hover {
+                color: inherit;
+            }
+        }
+
+        a {
+            color: #2370B6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #2C75FF;
+        }
+    }
+}
+
+div#profile {
+    float: left;
+    margin-right: 20px;
+
+    img {
+        border-radius: 50%;
+        margin: 0px;
+        padding: 0px;
+        display: block;
     }
 
-    a {
-        color: #2370B6;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: #2C75FF;
-    }
 }
