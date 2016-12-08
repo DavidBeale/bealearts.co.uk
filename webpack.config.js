@@ -15,29 +15,22 @@ module.exports = validate({
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'site.js',
-        publicPath: '/'
+        publicPath: ''
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true
-                }
+                loader: 'react-hot!babel',
+                exclude: /node_modules/
             },
             {
                 test: /\.less$/,
                 loader: "style-loader!css-loader!less-loader"
             },
             {
-                test: /\.png$/,
-                loader: "url-loader?mimetype=image/png"
-            },
-            {
-                test: /\.jpg$/,
-                loader: "url-loader?mimetype=image/jpeg"
+                test: /\.(png|jpg)$/,
+                loader: "file-loader?name=[path][name].[ext]"
             },
             {
                 test: /\.json$/,
