@@ -2,16 +2,16 @@
     <div id="content">
         <nav>
             <ul>
-                <li><a href="/#">Home</a></li>
-                <li><a href="/#projects">Projects</a></li>
-                <li><a href="/#about">About</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
             </ul>
         </nav>
 
         <header>
             <img src="images/logo.png" width="343" height="159" />
             <p>Information Ingenuity</p>
-            <a href="http://uk.linkedin.com/in/davidbeale" target="_blank">
+            <a href="http://uk.linkedin.com/in/davidbeale" target="_blank" rel="noopener noreferrer">
                 <img src="images/linkedin-badge.png" width="161" height="35" border="0" alt="View David Beale's profile on LinkedIn" />
             </a>
         </header>
@@ -19,14 +19,9 @@
         <article>
 
             <section>
-                <h2><a rel="projects">Projects</a></h2>
-                <div id="projects" />
-            </section>
-
-            <section>
-                <h2><a rel="about">About</a></h2>
+                <h2><a id="about">About</a></h2>
                 <div id="profile">
-                    <img src="images/david-beale.jpg" width="150" height="150" />
+                    <img src="images/david-beale.jpg" width="150" height="150" alt="Profile picture of David Beale" title="David Beale"/>
                 </div>
                 <p>
                     Highly motivated, creative and versatile hands on Technical Lead and U.I. Architect with over 10 years commercial experience with all major Web Technologies and System Architectures.
@@ -37,6 +32,11 @@
                 <p>
                     Highly skilled at architecture and development of complex, highly usable and quality tested Web Applications and Systems within with customer driven projects.
                 </p>
+            </section>
+
+            <section>
+                <h2><a id="projects">Projects</a></h2>
+                <div id="projects-root" />
             </section>
 
         </article>

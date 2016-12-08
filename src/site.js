@@ -7,5 +7,5 @@ require('./css/site.less');
 
 render(
     <Projects />,
-    document.getElementById('projects')
+    document.getElementById('projects-root')
 );
