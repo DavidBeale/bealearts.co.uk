@@ -121,10 +121,11 @@ article {
         a:hover {
             color: #2C75FF;
         }
+
     }
 }
 
-div#profile {
+#profile {
     float: left;
     margin-right: 20px;
 
@@ -135,4 +136,20 @@ div#profile {
         display: block;
     }
 
+    #avatar {
+        display: none;
+        top: -150px;
+    }
+
+}
+
+#profile:hover {
+    #profile-picture {
+        display: none;
+    }
+
+    #avatar {
+        display: inline;
+        top: 0px;
+    }
 }
