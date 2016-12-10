@@ -9,12 +9,12 @@ body {
 }
 section {
   position: relative;
-  min-height: 100%;
+  height: 100%;
 }
 nav {
   height: 60px;
   background: #222;
-  background: linear-gradient(to bottom, #222222 0%, #333333 100%);
+  background: linear-gradient(to bottom, #222 0%, #333 100%);
   font-size: 1.4em;
 }
 nav ul {
@@ -43,9 +43,10 @@ nav ul li a.current {
   cursor: default;
 }
 header {
-  height: 200px;
+  height: 360px;
+  padding-top: 50px;
   background: #035096;
-  background: linear-gradient(to bottom, #035096 0%, #2c75ff 100%);
+  background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);
   color: #EEE;
   text-align: center;
   font: 3em "Helvetica Neue", Helvetica, sans-serif;
@@ -54,61 +55,62 @@ header p {
   margin-top: 0px;
   margin-bottom: 20px;
 }
-header.home {
-  padding-top: 50px;
-  height: 350px;
-}
 footer {
-  position: absolute;
   height: 50px;
   width: 100%;
   background: #222;
-  background: linear-gradient(to bottom, #222222 0%, #333333 100%);
-  bottom: 0px;
-  color: #555;
-  border-top: 3px solid #035096;
+  background: linear-gradient(to bottom, #222 0%, #333 100%);
+  color: #777;
 }
 footer p {
+  padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
   width: 1024px;
+}
+footer p i {
+  float: right;
+  font-style: normal;
+}
+div#content {
+  min-height: 90%;
 }
 article {
   margin-left: auto;
   margin-right: auto;
   width: 1024px;
-  padding-bottom: 120px;
+}
+article section {
+  margin: 30px;
+  padding: 20px;
   font-size: 1.1em;
+  background: #282828;
+  background: linear-gradient(to bottom, #222 0%, #282828 100%);
 }
-article h1 {
-  font-size: 2em;
+article section h2 {
+  font: 1.5em "Helvetica Neue", Helvetica, sans-serif;
+  margin-top: 0px;
 }
-article a {
+article section h2 a {
+  color: inherit;
+}
+article section h2 a:hover {
+  color: inherit;
+}
+article section a {
   color: #2370B6;
   text-decoration: none;
 }
-article a:hover {
+article section a:hover {
   color: #2C75FF;
 }
-ul.github {
+div#profile {
+  float: left;
+  margin-right: 20px;
+}
+div#profile img {
+  border-radius: 50%;
   margin: 0px;
   padding: 0px;
-  width: 100%;
-  list-style: none;
-}
-ul.github li {
-  padding: 10px;
-  margin: 0px;
-  margin-bottom: 10px;
-  background: #222;
-  background: linear-gradient(to bottom, #222222 0%, #333333 200%);
-}
-ul.github p {
-  margin: 0px;
-}
-ul.github h2 {
-  margin-top: 0px;
-}
-ul.github img {
-  float: right;
+  display: block;
 }
