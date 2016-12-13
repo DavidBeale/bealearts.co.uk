@@ -47,6 +47,11 @@ module.exports = validate({
             }
         ]
     },
+    resolve: {
+        alias: {
+            app: path.join(path.join(__dirname, 'src/app'))
+        }
+    },
     plugins: [
         new PackageLoadersPlugin(),
         new HtmlWebpackPlugin({

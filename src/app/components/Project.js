@@ -1,17 +1,19 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import languageIcon from './languageIcon';
 
-export default class Project extends PureComponent
-{
-    render() {
-        const project = this.props.project;
+require('./Project.less');
 
-        return (
-            <dl>
-                <di><a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a></di>
-                <dd>{project.description}</dd>
-            </dl>
-        );
-    }
+export default function Project(props) {
+    const project = props.project;
+
+    const language = project.language || 'Unknown';
+
+    return (
+        <dl className="project">
+            <dt><h3><img width="26" height="26" src={languageIcon(language)} alt={language} /> <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a></h3></dt>
+            <dd>{project.description}</dd>
+        </dl>
+    );
 }
 
 

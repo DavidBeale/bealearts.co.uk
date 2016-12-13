@@ -10,6 +10,7 @@
         "comma-dangle": ["error", "never"],
         "no-use-before-define": ["off"],
         "no-unused-vars": ["warn"],
+        "no-prototype-builtins": ["off"],
         "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
         "react/jsx-indent": ["error", 4],
         "react/prefer-stateless-function": ["off"]

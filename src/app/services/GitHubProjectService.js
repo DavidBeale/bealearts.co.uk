@@ -33,6 +33,7 @@ function repoDtoToDomain(repo) {
     return {
         name: repo.name,
         description: repo.description,
-        url: repo.html_url
+        url: repo.html_url,
+        language: repo.language
     };
 }

@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 
 import ProjectList from '../components/ProjectList';
+import ProjectNav from '../components/ProjectNav';
 import GitHubProjectsService from '../services/GitHubProjectService';
+
 
 export default class Projects extends PureComponent
 {
@@ -49,12 +51,7 @@ export default class Projects extends PureComponent
 
         return (
             <section>
-                <nav>
-                    <ul>
-                        <li><button onClick={() => this.setProjectType('professional')}>Professional</button></li>
-                        <li><button onClick={() => this.setProjectType('personal')}>Personal</button></li>
-                    </ul>
-                </nav>
+                <ProjectNav type={projectType} onChange={this.setProjectType} />
 
                 <ProjectList projects={projects[projectType]} />
             </section>

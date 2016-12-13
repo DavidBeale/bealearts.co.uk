@@ -13,7 +13,7 @@ section {
     height: 100%;
 }
 
-nav {
+.main-nav {
     height: 60px;
     background: #222;
     background: linear-gradient(to bottom, #222 0%, #333 100%);
@@ -24,7 +24,8 @@ nav {
         padding: 0px;
         margin-left: auto;
         margin-right: auto;
-        width: 1024px;
+        width: 95%;
+        max-width: 1024px;
         list-style: none;
 
         li {
@@ -76,7 +77,8 @@ footer {
         padding-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 1024px;
+        width: 95%;
+        max-width: 1024px;
 
         i {
             float: right;
@@ -85,16 +87,17 @@ footer {
     }
 }
 
-div#content {
-    min-height: 90%;
+.content {
+    min-height: 95%;
 }
 
 article {
     margin-left: auto;
     margin-right: auto;
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
 
-    section {
+    .content {
         margin: 30px;
         padding: 20px;
         font-size: 1.1em;

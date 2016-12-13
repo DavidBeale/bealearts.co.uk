@@ -1,21 +1,20 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import Project from './Project';
 
-export default class ProjectList extends PureComponent
-{
-    render() {
-        const projects = this.props.projects;
+require('./ProjectList.less');
 
-        return (
-            <ul>
-                {
-                    projects.map(project =>
-                        <li key={project.name}><Project project={project} /></li>)
-                }
-            </ul>
-        );
-    }
+export default function ProjectList(props) {
+    const projects = props.projects;
+
+    return (
+        <ul className="projects-list">
+            {
+                projects.map(project =>
+                    <li key={project.name}><Project project={project} /></li>)
+            }
+        </ul>
+    );
 }
 
 ProjectList.propTypes = {
