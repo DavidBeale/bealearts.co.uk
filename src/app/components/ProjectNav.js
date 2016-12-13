@@ -3,12 +3,11 @@ import React from 'react';
 import style from './ProjectNav.less';
 
 export default function ProjectNav(props) {
-    console.log(style);
     return (
         <nav className="project-nav">
             <ul>
-                <li><button onClick={() => props.onChange('professional')}>Professional</button></li>
-                <li><button onClick={() => props.onChange('personal')}>Personal</button></li>
+                <li><button type="button" className={props.type === 'professional' ? 'active' : null} onClick={() => props.onChange('professional')}>Professional</button></li>
+                <li><button type="button" className={props.type === 'personal' ? 'active' : null}onClick={() => props.onChange('personal')}>Personal</button></li>
             </ul>
         </nav>
     );
@@ -16,5 +15,6 @@ export default function ProjectNav(props) {
 
 
 ProjectNav.propTypes = {
+    type: React.PropTypes.string,
     onChange: React.PropTypes.func
 };

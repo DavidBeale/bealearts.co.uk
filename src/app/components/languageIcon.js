@@ -4,6 +4,7 @@ import JavaScriptIcon from '../../images/languages/javascript.png';
 import JavaIcon from '../../images/languages/java.png';
 import ColdFusionIcon from '../../images/languages/coldfusion.png';
 import ActionScriptIcon from '../../images/languages/actionscript.png';
+import ArduinoIcon from '../../images/languages/arduino.png';
 
 
 export default function getLanguageIcon(language) {
@@ -16,5 +17,6 @@ const languageIcons = {
     JavaScript: JavaScriptIcon,
     Java: JavaIcon,
     ColdFusion: ColdFusionIcon,
-    ActionScript: ActionScriptIcon
+    ActionScript: ActionScriptIcon,
+    Arduino: ArduinoIcon
 };

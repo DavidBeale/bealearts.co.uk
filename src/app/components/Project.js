@@ -9,10 +9,12 @@ export default function Project(props) {
     const language = project.language || 'Unknown';
 
     return (
-        <dl className="project">
-            <dt><h3><img width="26" height="26" src={languageIcon(language)} alt={language} /> <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a></h3></dt>
-            <dd>{project.description}</dd>
-        </dl>
+        <a className="project" href={project.url} target="_blank" rel="noopener noreferrer">
+            <dl>
+                <dt><h3><img width="26" height="26" src={languageIcon(language)} alt={language} />{project.name}</h3></dt>
+                <dd>{project.description}</dd>
+            </dl>
+        </a>
     );
 }
 
