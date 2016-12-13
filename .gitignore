@@ -1,8 +1,0 @@
-.DS_Store
-Thumbs.db
-build
-dist
-node_modules
-bower_components
-.grunt
-src/content/*
