@@ -67,7 +67,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(200);
+	__webpack_require__(201);
 	
 	(0, _reactDom.render)(_react2.default.createElement(_Projects2.default, null), document.getElementById('projects-root'));
 	
@@ -21504,11 +21504,11 @@
 	
 	var _ProjectList2 = _interopRequireDefault(_ProjectList);
 	
-	var _ProjectNav = __webpack_require__(194);
+	var _ProjectNav = __webpack_require__(195);
 	
 	var _ProjectNav2 = _interopRequireDefault(_ProjectNav);
 	
-	var _GitHubProjectService = __webpack_require__(197);
+	var _GitHubProjectService = __webpack_require__(198);
 	
 	var _GitHubProjectService2 = _interopRequireDefault(_GitHubProjectService);
 	
@@ -21611,7 +21611,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(192);
+	__webpack_require__(193);
 	
 	function ProjectList(props) {
 	    var projects = props.projects;
@@ -21658,7 +21658,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(188);
+	__webpack_require__(189);
 	
 	function Project(props) {
 	    var project = props.project;
@@ -21666,27 +21666,26 @@
 	    var language = project.language || 'Unknown';
 	
 	    return _react2.default.createElement(
-	        'dl',
-	        { className: 'project' },
+	        'a',
+	        { className: 'project', href: project.url, target: '_blank', rel: 'noopener noreferrer' },
 	        _react2.default.createElement(
-	            'dt',
+	            'dl',
 	            null,
 	            _react2.default.createElement(
-	                'h3',
+	                'dt',
 	                null,
-	                _react2.default.createElement('img', { width: '26', height: '26', src: (0, _languageIcon2.default)(language), alt: language }),
-	                ' ',
 	                _react2.default.createElement(
-	                    'a',
-	                    { href: project.url, target: '_blank', rel: 'noopener noreferrer' },
+	                    'h3',
+	                    null,
+	                    _react2.default.createElement('img', { width: '26', height: '26', src: (0, _languageIcon2.default)(language), alt: language }),
 	                    project.name
 	                )
+	            ),
+	            _react2.default.createElement(
+	                'dd',
+	                null,
+	                project.description
 	            )
-	        ),
-	        _react2.default.createElement(
-	            'dd',
-	            null,
-	            project.description
 	        )
 	    );
 	}
@@ -21734,6 +21733,10 @@
 	
 	var _actionscript2 = _interopRequireDefault(_actionscript);
 	
+	var _arduino = __webpack_require__(188);
+	
+	var _arduino2 = _interopRequireDefault(_arduino);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function getLanguageIcon(language) {
@@ -21745,7 +21748,8 @@
 	    JavaScript: _javascript2.default,
 	    Java: _java2.default,
 	    ColdFusion: _coldfusion2.default,
-	    ActionScript: _actionscript2.default
+	    ActionScript: _actionscript2.default,
+	    Arduino: _arduino2.default
 	};
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "languageIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -21784,13 +21788,19 @@
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "images/languages/arduino.png";
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(189);
+	var content = __webpack_require__(190);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(191)(content, {});
+	var update = __webpack_require__(192)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -21807,21 +21817,21 @@
 	}
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(190)();
+	exports = module.exports = __webpack_require__(191)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".project {\n  margin: 10px;\n  padding: 10px;\n  height: 100px;\n  background-color: #2A2A2A;\n}\n.project dd {\n  margin: 0px;\n}\n.project dt h3 {\n  margin-top: 0px;\n  margin-bottom: 10px;\n  font-weight: normal;\n  font-size: 1.3em;\n}\n.project dt h3 img {\n  vertical-align: middle;\n}\n.project dt h3 a {\n  color: #DDD;\n}\n.project dt h3 a:hover {\n  color: #FFF;\n  text-decoration: underline;\n}\n", ""]);
+	exports.push([module.id, ".project dl {\n  margin: 10px;\n  padding: 10px;\n  height: 100px;\n  background-color: #2A2A2A;\n  color: #DDD;\n}\n.project dl dd {\n  margin: 0px;\n}\n.project dl dt h3 {\n  margin-top: 0px;\n  margin-bottom: 10px;\n  font-weight: normal;\n  font-size: 1.3em;\n}\n.project dl dt h3 img {\n  vertical-align: middle;\n  margin-right: 10px;\n}\n.project:hover dl {\n  background-color: #2F2F2F;\n}\n.project:hover dl h3 {\n  color: #FFF;\n  text-decoration: underline;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/*
@@ -21877,7 +21887,7 @@
 
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -22129,16 +22139,16 @@
 
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(193);
+	var content = __webpack_require__(194);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(191)(content, {});
+	var update = __webpack_require__(192)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22155,10 +22165,10 @@
 	}
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(190)();
+	exports = module.exports = __webpack_require__(191)();
 	// imports
 	
 	
@@ -22169,7 +22179,7 @@
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -22185,14 +22195,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProjectNav = __webpack_require__(195);
+	var _ProjectNav = __webpack_require__(196);
 	
 	var _ProjectNav2 = _interopRequireDefault(_ProjectNav);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ProjectNav(props) {
-	    console.log(_ProjectNav2.default);
 	    return _react2.default.createElement(
 	        'nav',
 	        { className: 'project-nav' },
@@ -22204,7 +22213,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    'button',
-	                    { onClick: function onClick() {
+	                    { type: 'button', className: props.type === 'professional' ? 'active' : null, onClick: function onClick() {
 	                            return props.onChange('professional');
 	                        } },
 	                    'Professional'
@@ -22215,7 +22224,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    'button',
-	                    { onClick: function onClick() {
+	                    { type: 'button', className: props.type === 'personal' ? 'active' : null, onClick: function onClick() {
 	                            return props.onChange('personal');
 	                        } },
 	                    'Personal'
@@ -22226,22 +22235,23 @@
 	}
 	
 	ProjectNav.propTypes = {
+	    type: _react2.default.PropTypes.string,
 	    onChange: _react2.default.PropTypes.func
 	};
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ProjectNav.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(196);
+	var content = __webpack_require__(197);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(191)(content, {});
+	var update = __webpack_require__(192)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22258,21 +22268,21 @@
 	}
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(190)();
+	exports = module.exports = __webpack_require__(191)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".project-nav ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  margin-left: auto;\n  margin-right: auto;\n  display: flex;\n  flex-wrap: wrap;\n  width: 200px;\n}\n.project-nav ul li {\n  vertical-align: middle;\n}\n.project-nav ul button {\n  width: 100px;\n}\n", ""]);
+	exports.push([module.id, ".project-nav ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  margin-left: auto;\n  margin-right: auto;\n  display: flex;\n  flex-wrap: wrap;\n  width: 200px;\n}\n.project-nav ul li {\n  vertical-align: middle;\n}\n.project-nav ul button {\n  width: 100px;\n  height: 30px;\n  border-radius: 0px;\n  cursor: pointer;\n  border: none;\n  font-size: 0.8em;\n  background: linear-gradient(to bottom, #888 0%, #CCC 100%);\n  color: #333;\n}\n.project-nav ul button.active {\n  background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);\n  color: #EEE;\n  cursor: default;\n  pointer-events: none;\n}\n.project-nav ul button:hover {\n  background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);\n  color: #EEE;\n}\n.project-nav ul button:focus {\n  outline: none;\n  text-decoration: underline;\n}\n.project-nav ul button.active:focus,\n.project-nav ul button:active {\n  text-decoration: none;\n}\n.project-nav ul li:nth-child(1) button {\n  border-top-left-radius: 10px;\n  border-bottom-left-radius: 10px;\n}\n.project-nav ul li:nth-child(2) button {\n  border-top-right-radius: 10px;\n  border-bottom-right-radius: 10px;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -22285,11 +22295,11 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _mockPersonal = __webpack_require__(198);
+	var _mockPersonal = __webpack_require__(199);
 	
 	var _mockPersonal2 = _interopRequireDefault(_mockPersonal);
 	
-	var _mockProfessional = __webpack_require__(199);
+	var _mockProfessional = __webpack_require__(200);
 	
 	var _mockProfessional2 = _interopRequireDefault(_mockProfessional);
 	
@@ -22346,7 +22356,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "GitHubProjectService.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -23233,7 +23243,7 @@
 	];
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -25000,16 +25010,16 @@
 	];
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(201);
+	var content = __webpack_require__(202);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(191)(content, {});
+	var update = __webpack_require__(192)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -25026,10 +25036,10 @@
 	}
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(190)();
+	exports = module.exports = __webpack_require__(191)();
 	// imports
 	
 	
