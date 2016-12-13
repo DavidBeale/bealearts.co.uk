@@ -67,7 +67,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(185);
+	__webpack_require__(194);
 	
 	(0, _reactDom.render)(_react2.default.createElement(_Projects2.default, null), document.getElementById('projects-root'));
 	
@@ -21504,7 +21504,11 @@
 	
 	var _ProjectList2 = _interopRequireDefault(_ProjectList);
 	
-	var _GitHubProjectService = __webpack_require__(182);
+	var _ProjectNav = __webpack_require__(188);
+	
+	var _ProjectNav2 = _interopRequireDefault(_ProjectNav);
+	
+	var _GitHubProjectService = __webpack_require__(191);
 	
 	var _GitHubProjectService2 = _interopRequireDefault(_GitHubProjectService);
 	
@@ -21565,44 +21569,13 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this3 = this;
-	
 	            var projects = this.state.projects;
 	            var projectType = this.state.projectType;
 	
 	            return _react2.default.createElement(
 	                'section',
 	                null,
-	                _react2.default.createElement(
-	                    'nav',
-	                    null,
-	                    _react2.default.createElement(
-	                        'ul',
-	                        null,
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'button',
-	                                { onClick: function onClick() {
-	                                        return _this3.setProjectType('professional');
-	                                    } },
-	                                'Professional'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'button',
-	                                { onClick: function onClick() {
-	                                        return _this3.setProjectType('personal');
-	                                    } },
-	                                'Personal'
-	                            )
-	                        )
-	                    )
-	                ),
+	                _react2.default.createElement(_ProjectNav2.default, { type: projectType, onChange: this.setProjectType }),
 	                _react2.default.createElement(_ProjectList2.default, { projects: projects[projectType] })
 	            );
 	        }
@@ -21626,8 +21599,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	exports.default = ProjectList;
 	
 	var _react = __webpack_require__(2);
 	
@@ -21639,45 +21611,23 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	__webpack_require__(186);
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	function ProjectList(props) {
+	    var projects = props.projects;
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var ProjectList = function (_PureComponent) {
-	    _inherits(ProjectList, _PureComponent);
-	
-	    function ProjectList() {
-	        _classCallCheck(this, ProjectList);
-	
-	        return _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).apply(this, arguments));
-	    }
-	
-	    _createClass(ProjectList, [{
-	        key: 'render',
-	        value: function render() {
-	            var projects = this.props.projects;
-	
+	    return _react2.default.createElement(
+	        'ul',
+	        { className: 'projects-list' },
+	        projects.map(function (project) {
 	            return _react2.default.createElement(
-	                'ul',
-	                null,
-	                projects.map(function (project) {
-	                    return _react2.default.createElement(
-	                        'li',
-	                        { key: project.name },
-	                        _react2.default.createElement(_Project2.default, { project: project })
-	                    );
-	                })
+	                'li',
+	                { key: project.name },
+	                _react2.default.createElement(_Project2.default, { project: project })
 	            );
-	        }
-	    }]);
-	
-	    return ProjectList;
-	}(_react.PureComponent);
-	
-	exports.default = ProjectList;
-	
+	        })
+	    );
+	}
 	
 	ProjectList.propTypes = {
 	    projects: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object)
@@ -21691,13 +21641,12 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	exports.default = Project;
 	
 	var _react = __webpack_require__(2);
 	
@@ -21705,52 +21654,38 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	__webpack_require__(182);
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	function Project(props) {
+	    var project = props.project;
+	    var languageIcon = './images/languages/' + (project.language || '').toLowerCase() + '.png';
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Project = function (_PureComponent) {
-	    _inherits(Project, _PureComponent);
-	
-	    function Project() {
-	        _classCallCheck(this, Project);
-	
-	        return _possibleConstructorReturn(this, (Project.__proto__ || Object.getPrototypeOf(Project)).apply(this, arguments));
-	    }
-	
-	    _createClass(Project, [{
-	        key: "render",
-	        value: function render() {
-	            var project = this.props.project;
-	
-	            return _react2.default.createElement(
-	                "dl",
+	    return _react2.default.createElement(
+	        'dl',
+	        { className: 'project' },
+	        _react2.default.createElement(
+	            'dt',
+	            null,
+	            _react2.default.createElement(
+	                'h3',
 	                null,
+	                _react2.default.createElement('img', { src: languageIcon, alt: project.language }),
 	                _react2.default.createElement(
-	                    "di",
-	                    null,
-	                    _react2.default.createElement(
-	                        "a",
-	                        { href: project.url, target: "_blank", rel: "noopener noreferrer" },
-	                        project.name
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    "dd",
-	                    null,
-	                    project.description
+	                    'a',
+	                    { href: project.url, target: '_blank', rel: 'noopener noreferrer' },
+	                    project.name
 	                )
-	            );
-	        }
-	    }]);
-	
-	    return Project;
-	}(_react.PureComponent);
-	
-	exports.default = Project;
-	
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'dd',
+	            null,
+	            project.description,
+	            ' ',
+	            project.language
+	        )
+	    );
+	}
 	
 	Project.propTypes = {
 	    project: _react2.default.PropTypes.shape({
@@ -21766,6 +21701,497 @@
 /* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(183);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(185)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./Project.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./Project.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(184)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".project {\n  margin: 10px;\n  padding: 10px;\n  height: 100px;\n  background-color: #2A2A2A;\n}\n.project dd {\n  margin: 0px;\n}\n.project h3 {\n  margin-top: 0px;\n  margin-bottom: 10px;\n  font-weight: normal;\n  font-size: 1.3em;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 184 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+	
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+	
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+	
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+	
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+	
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+	
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+	
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+	
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+	
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+	
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+	
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+	
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+	
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+	
+		update(obj);
+	
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+	
+	var replaceText = (function () {
+		var textStore = [];
+	
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+	
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+	
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+	
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+	
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+	
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+	
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+	
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+	
+		var blob = new Blob([css], { type: "text/css" });
+	
+		var oldSrc = linkElement.href;
+	
+		linkElement.href = URL.createObjectURL(blob);
+	
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(187);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(185)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./ProjectList.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./ProjectList.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(184)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".projects-list {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 0px;\n}\n.projects-list li {\n  width: 50%;\n  list-style: none;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = ProjectNav;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ProjectNav = __webpack_require__(189);
+	
+	var _ProjectNav2 = _interopRequireDefault(_ProjectNav);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function ProjectNav(props) {
+	    console.log(_ProjectNav2.default);
+	    return _react2.default.createElement(
+	        'nav',
+	        { className: 'project-nav' },
+	        _react2.default.createElement(
+	            'ul',
+	            null,
+	            _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return props.onChange('professional');
+	                        } },
+	                    'Professional'
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return props.onChange('personal');
+	                        } },
+	                    'Personal'
+	                )
+	            )
+	        )
+	    );
+	}
+	
+	ProjectNav.propTypes = {
+	    onChange: _react2.default.PropTypes.func
+	};
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ProjectNav.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(190);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(185)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./ProjectNav.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./ProjectNav.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(184)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".project-nav ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  margin-left: auto;\n  margin-right: auto;\n  display: flex;\n  flex-wrap: wrap;\n  width: 200px;\n}\n.project-nav ul li {\n  vertical-align: middle;\n}\n.project-nav ul button {\n  width: 100px;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
@@ -21776,11 +22202,11 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _mockPersonal = __webpack_require__(183);
+	var _mockPersonal = __webpack_require__(192);
 	
 	var _mockPersonal2 = _interopRequireDefault(_mockPersonal);
 	
-	var _mockProfessional = __webpack_require__(184);
+	var _mockProfessional = __webpack_require__(193);
 	
 	var _mockProfessional2 = _interopRequireDefault(_mockProfessional);
 	
@@ -21829,14 +22255,15 @@
 	    return {
 	        name: repo.name,
 	        description: repo.description,
-	        url: repo.html_url
+	        url: repo.html_url,
+	        language: repo.language
 	    };
 	}
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/david/Projects/bealearts.co.uk/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "GitHubProjectService.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 183 */
+/* 192 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -22723,7 +23150,7 @@
 	];
 
 /***/ },
-/* 184 */
+/* 193 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -24490,16 +24917,16 @@
 	];
 
 /***/ },
-/* 185 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(186);
+	var content = __webpack_require__(195);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(188)(content, {});
+	var update = __webpack_require__(185)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -24516,325 +24943,17 @@
 	}
 
 /***/ },
-/* 186 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(187)();
+	exports = module.exports = __webpack_require__(184)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody {\n  display: block;\n  padding: 0px;\n  margin: 0px;\n  background-color: #333;\n  color: #DDD;\n  height: 100%;\n  font: 1em \"Helvetica Neue\", Helvetica, sans-serif;\n}\nsection {\n  position: relative;\n  height: 100%;\n}\nnav {\n  height: 60px;\n  background: #222;\n  background: linear-gradient(to bottom, #222 0%, #333 100%);\n  font-size: 1.4em;\n}\nnav ul {\n  margin: 0px;\n  padding: 0px;\n  margin-left: auto;\n  margin-right: auto;\n  width: 1024px;\n  list-style: none;\n}\nnav ul li {\n  float: left;\n  vertical-align: middle;\n  margin-right: 20px;\n  line-height: 60px;\n}\nnav ul li a {\n  color: #DDD;\n  text-decoration: none;\n}\nnav ul li a:hover,\nnav ul li a.current {\n  color: #FFF;\n}\nnav ul li a.current {\n  cursor: default;\n}\nheader {\n  height: 360px;\n  padding-top: 50px;\n  background: #035096;\n  background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);\n  color: #EEE;\n  text-align: center;\n  font: 3em \"Helvetica Neue\", Helvetica, sans-serif;\n}\nheader p {\n  margin-top: 0px;\n  margin-bottom: 20px;\n}\nfooter {\n  height: 50px;\n  width: 100%;\n  background: #222;\n  background: linear-gradient(to bottom, #222 0%, #333 100%);\n  color: #777;\n}\nfooter p {\n  padding-top: 10px;\n  margin-left: auto;\n  margin-right: auto;\n  width: 1024px;\n}\nfooter p i {\n  float: right;\n  font-style: normal;\n}\ndiv#content {\n  min-height: 90%;\n}\narticle {\n  margin-left: auto;\n  margin-right: auto;\n  width: 1024px;\n}\narticle section {\n  margin: 30px;\n  padding: 20px;\n  font-size: 1.1em;\n  background: #282828;\n  background: linear-gradient(to bottom, #222 0%, #282828 100%);\n}\narticle section h2 {\n  font: 1.5em \"Helvetica Neue\", Helvetica, sans-serif;\n  margin-top: 0px;\n}\narticle section h2 a {\n  color: inherit;\n}\narticle section h2 a:hover {\n  color: inherit;\n}\narticle section a {\n  color: #2370B6;\n  text-decoration: none;\n}\narticle section a:hover {\n  color: #2C75FF;\n}\n#profile {\n  float: left;\n  margin-right: 20px;\n}\n#profile img {\n  border-radius: 50%;\n  margin: 0px;\n  padding: 0px;\n  display: block;\n}\n#profile #avatar {\n  display: none;\n  top: -150px;\n}\n#profile:hover #profile-picture {\n  display: none;\n}\n#profile:hover #avatar {\n  display: inline;\n  top: 0px;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody {\n  display: block;\n  padding: 0px;\n  margin: 0px;\n  background-color: #333;\n  color: #DDD;\n  height: 100%;\n  font: 1em \"Helvetica Neue\", Helvetica, sans-serif;\n}\nsection {\n  position: relative;\n  height: 100%;\n}\n.main-nav {\n  height: 60px;\n  background: #222;\n  background: linear-gradient(to bottom, #222 0%, #333 100%);\n  font-size: 1.4em;\n}\n.main-nav ul {\n  margin: 0px;\n  padding: 0px;\n  margin-left: auto;\n  margin-right: auto;\n  width: 95%;\n  max-width: 1024px;\n  list-style: none;\n}\n.main-nav ul li {\n  float: left;\n  vertical-align: middle;\n  margin-right: 20px;\n  line-height: 60px;\n}\n.main-nav ul li a {\n  color: #DDD;\n  text-decoration: none;\n}\n.main-nav ul li a:hover,\n.main-nav ul li a.current {\n  color: #FFF;\n}\n.main-nav ul li a.current {\n  cursor: default;\n}\nheader {\n  height: 360px;\n  padding-top: 50px;\n  background: #035096;\n  background: linear-gradient(to bottom, #035096 0%, #2C75FF 100%);\n  color: #EEE;\n  text-align: center;\n  font: 3em \"Helvetica Neue\", Helvetica, sans-serif;\n}\nheader p {\n  margin-top: 0px;\n  margin-bottom: 20px;\n}\nfooter {\n  height: 50px;\n  width: 100%;\n  background: #222;\n  background: linear-gradient(to bottom, #222 0%, #333 100%);\n  color: #777;\n}\nfooter p {\n  padding-top: 10px;\n  margin-left: auto;\n  margin-right: auto;\n  width: 95%;\n  max-width: 1024px;\n}\nfooter p i {\n  float: right;\n  font-style: normal;\n}\n.content {\n  min-height: 95%;\n}\narticle {\n  margin-left: auto;\n  margin-right: auto;\n  width: 100%;\n  max-width: 1024px;\n}\narticle .content {\n  margin: 30px;\n  padding: 20px;\n  font-size: 1.1em;\n  background: #282828;\n  background: linear-gradient(to bottom, #222 0%, #282828 100%);\n}\narticle .content h2 {\n  font: 1.5em \"Helvetica Neue\", Helvetica, sans-serif;\n  margin-top: 0px;\n}\narticle .content h2 a {\n  color: inherit;\n}\narticle .content h2 a:hover {\n  color: inherit;\n}\narticle .content a {\n  color: #2370B6;\n  text-decoration: none;\n}\narticle .content a:hover {\n  color: #2C75FF;\n}\n#profile {\n  float: left;\n  margin-right: 20px;\n}\n#profile img {\n  border-radius: 50%;\n  margin: 0px;\n  padding: 0px;\n  display: block;\n}\n#profile #avatar {\n  display: none;\n  top: -150px;\n}\n#profile:hover #profile-picture {\n  display: none;\n}\n#profile:hover #avatar {\n  display: inline;\n  top: 0px;\n}\n", ""]);
 	
 	// exports
-
-
-/***/ },
-/* 187 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-	
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-	
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-	
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-	
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-	
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-	
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-	
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-	
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-	
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-	
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = linkElement.href;
-	
-		linkElement.href = URL.createObjectURL(blob);
-	
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
 
 
 /***/ }
