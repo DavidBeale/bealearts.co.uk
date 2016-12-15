@@ -1,6 +1,4 @@
 import fetch from 'isomorphic-fetch';
-import personal from './mock-personal.json';
-import professional from './mock-professional.json';
 
 export default class GitHubProjectsService
 {
@@ -15,7 +13,8 @@ export default class GitHubProjectsService
 
 
 function getProjects(user) {
-    return Promise.resolve(user === 'davidbeale' ? personal : professional)
+    return fetch(`https://api.github.com/users/${user}/repos?type=owner&sort=updated`)
+        .then(response => response.json())
         .then(filter)
         .then(assemble);
 }

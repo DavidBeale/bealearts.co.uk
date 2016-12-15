@@ -26,8 +26,6 @@ class Projects extends PureComponent
         const projectType = this.props.projectType;
         const projects = this.props.projects[projectType] || [];
 
-        console.info(projectType, this.props.projects, projects);
-
         return (
             <section>
                 <ProjectNav type={projectType} onChange={this.setProjectType} />

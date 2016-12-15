@@ -12,20 +12,15 @@ export function selectProjectType(projectType) {
 
 export function loadProjects() {
     return (dispatch) => {
-        const projectsMap = {};
+        const professionalPromise = projectsService.getProfessionalProjects();
 
-        const professionalPromise = projectsService.getProfessionalProjects()
-            .then((projects) => {
-                projectsMap.professional = projects;
-            });
-
-        const personalPromise = projectsService.getPersonalProjects()
-            .then((projects) => {
-                projectsMap.personal = projects;
-            });
+        const personalPromise = projectsService.getPersonalProjects();
 
         Promise.all([professionalPromise, personalPromise])
-            .then(dispatch(loadProjectsSuccess(projectsMap)))
+            .then(results => dispatch(loadProjectsSuccess({
+                professional: results[0],
+                personal: results[1]
+            })))
             .catch(error => dispatch(loadProjectsFailed(error)));
     };
 }
