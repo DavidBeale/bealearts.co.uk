@@ -6,6 +6,9 @@ const path = require('path');
 const PackageLoadersPlugin = require('webpack-package-loaders-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = validate({
     context: path.join(__dirname, 'src'),
@@ -26,7 +29,7 @@ module.exports = validate({
             },
             {
                 test: /\.less$/,
-                loader: "style-loader!css-loader!less-loader"
+                loader: isProduction ? ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") : "style-loader!css-loader!less-loader"
             },
             {
                 test: /\.(png|jpg)$/,
@@ -52,19 +55,34 @@ module.exports = validate({
             app: path.join(path.join(__dirname, 'src/app'))
         }
     },
-    plugins: [
+    plugins: optimize([
         new PackageLoadersPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
         new CopyWebpackPlugin([
             {from: 'CNAME'}
-        ]),
-        //new webpack.optimize.UglifyJsPlugin({minimize: true}),
-        //new webpack.optimize.DedupePlugin()
-    ],
-    devtool: 'source-map',
+        ])
+    ], [
+        new webpack.optimize.UglifyJsPlugin({minimize: true}),
+        new webpack.optimize.DedupePlugin(),
+        new ExtractTextPlugin('site.css')
+    ]),
+    devtool: isProduction ? false : 'source-map',
     devServer: {
         contentBase: '../dist',
+    },
+    eslint: {
+        failOnWarning: isProduction,
+        failOnError: true
     }
 });
+
+
+function optimize(nonProductionObjects, productionObjects) {
+    if (process.env.NODE_ENV === 'production') {
+        return nonProductionObjects.concat(productionObjects);;
+    } else {
+        return nonProductionObjects;
+    }
+}
