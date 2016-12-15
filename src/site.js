@@ -1,11 +1,13 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import { render } from 'react-dom';
 
-import Projects from './app/containers/Projects';
+import Root from './app/containers/Root';
 
 require('./css/site.less');
 
 render(
-    <Projects />,
+    <Root />,
     document.getElementById('projects-root')
 );

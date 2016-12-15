@@ -24,7 +24,7 @@ module.exports = validate({
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'react-hot!babel',
+                loader: isProduction ? 'babel?plugins[]=transform-runtime' : 'react-hot!babel?plugins[]=transform-runtime,cacheDirectory=true',
                 exclude: /node_modules/
             },
             {

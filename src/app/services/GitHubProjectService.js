@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch';
 import personal from './mock-personal.json';
 import professional from './mock-professional.json';
 
