@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './ProjectNav.less';
+require('./ProjectNav.less');
 
 export default function ProjectNav(props) {
     return (
