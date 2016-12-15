@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 import { SELECT_PROJECT_TYPE, LOAD_PROJECTS } from './actions';
 
+
 function projectType(state = 'professional', action) {
     switch (action.type) {
     case SELECT_PROJECT_TYPE:
@@ -11,7 +12,11 @@ function projectType(state = 'professional', action) {
     }
 }
 
-function projects(state = { professional: [], personal: [] }, action) {
+
+function projects(state = {
+    professional: [],
+    personal: []
+}, action) {
     switch (action.type) {
     case LOAD_PROJECTS:
         return { ...state, [action.projectType]: action.projects };
