@@ -15,7 +15,7 @@ class Projects extends PureComponent
     }
 
     componentWillMount() {
-        this.props.dispatch(loadProjects());
+        this.props.dispatch(loadProjects(this.props.projectType));
     }
 
     setProjectType(projectType) {

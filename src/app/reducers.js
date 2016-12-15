@@ -14,7 +14,7 @@ function projectType(state = 'professional', action) {
 function projects(state = { professional: [], personal: [] }, action) {
     switch (action.type) {
     case LOAD_PROJECTS:
-        return action.projects;
+        return { ...state, [action.projectType]: action.projects };
     default:
         return state;
     }
