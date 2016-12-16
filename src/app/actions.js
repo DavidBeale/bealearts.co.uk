@@ -1,3 +1,5 @@
+import { createAction } from 'redux-actions';
+
 import GitHubProjectsService from './services/GitHubProjectService';
 
 export const LOAD_PROJECTS = 'LOAD_PROJECTS';
@@ -7,10 +9,7 @@ export function selectProjectType(projectType) {
     return (dispatch) => {
         dispatch(loadProjects(projectType));
 
-        dispatch({
-            type: SELECT_PROJECT_TYPE,
-            projectType
-        });
+        dispatch(createAction(SELECT_PROJECT_TYPE)(projectType));
     };
 }
 
@@ -29,21 +28,11 @@ export function loadProjects(projectType) {
     };
 }
 
-function loadProjectsSuccess(projectType, projects) {
-    return {
-        type: LOAD_PROJECTS,
-        projectType,
-        projects
-    };
-}
+const loadProjectsSuccess = createAction(LOAD_PROJECTS,
+    (projectType, projects) => ({ projectType, projects })
+);
 
-function loadProjectsFailed(error) {
-    return {
-        type: LOAD_PROJECTS,
-        error,
-        isError: true
-    };
-}
+const loadProjectsFailed = createAction(LOAD_PROJECTS);
 
 
 function loadProfessionalProjects() {

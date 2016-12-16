@@ -1,11 +1,9 @@
 import React from 'react';
 import languageIcon from './languageIcon';
 
-require('./Project.less');
+import './Project.less';
 
-export default function Project(props) {
-    const project = props.project;
-
+export default function Project({ project }) {
     const language = project.language || 'Unknown';
 
     return (

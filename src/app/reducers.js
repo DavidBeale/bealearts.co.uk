@@ -1,29 +1,23 @@
 
 import { combineReducers } from 'redux';
+import { handleAction } from 'redux-actions';
+
 import { SELECT_PROJECT_TYPE, LOAD_PROJECTS } from './actions';
 
 
-function projectType(state = 'professional', action) {
-    switch (action.type) {
-    case SELECT_PROJECT_TYPE:
-        return action.projectType;
-    default:
-        return state;
-    }
-}
+const projectType = handleAction(SELECT_PROJECT_TYPE,
+    (state, action) => (action.payload),
+    'professional'
+);
 
 
-function projects(state = {
-    professional: [],
-    personal: []
-}, action) {
-    switch (action.type) {
-    case LOAD_PROJECTS:
-        return { ...state, [action.projectType]: action.projects };
-    default:
-        return state;
+const projects = handleAction(LOAD_PROJECTS,
+    (state, action) => ({ ...state, [action.payload.projectType]: action.payload.projects }),
+    {
+        professional: [],
+        personal: []
     }
-}
+);
 
 
 export default combineReducers({

@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 
 import Root from './app/containers/Root';
 
-require('./css/site.less');
+import './css/site.less';
 
 render(
     <Root />,

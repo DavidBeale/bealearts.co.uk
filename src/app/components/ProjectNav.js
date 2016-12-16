@@ -1,13 +1,13 @@
 import React from 'react';
 
-require('./ProjectNav.less');
+import './ProjectNav.less';
 
-export default function ProjectNav(props) {
+export default function ProjectNav({ type, onChange }) {
     return (
         <nav className="project-nav">
             <ul>
-                <li><button type="button" className={props.type === 'professional' ? 'active' : null} onClick={() => props.onChange('professional')}>Professional</button></li>
-                <li><button type="button" className={props.type === 'personal' ? 'active' : null}onClick={() => props.onChange('personal')}>Personal</button></li>
+                <li><button type="button" className={type === 'professional' ? 'active' : null} onClick={() => onChange('professional')}>Professional</button></li>
+                <li><button type="button" className={type === 'personal' ? 'active' : null} onClick={() => onChange('personal')}>Personal</button></li>
             </ul>
         </nav>
     );

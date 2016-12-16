@@ -2,11 +2,9 @@ import React from 'react';
 
 import Project from './Project';
 
-require('./ProjectList.less');
+import './ProjectList.less';
 
-export default function ProjectList(props) {
-    const projects = props.projects;
-
+export default function ProjectList({ projects }) {
     return (
         <ul className="projects-list">
             {
