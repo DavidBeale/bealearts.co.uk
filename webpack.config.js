@@ -29,7 +29,7 @@ module.exports = validate({
             },
             {
                 test: /\.less$/,
-                loader: isProduction ? ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") : "style-loader!css-loader!less-loader"
+                loader: isProduction ? ExtractTextPlugin.extract("style-loader", "css-loader?localIdentName=[local]-[hash:base64:5]!less-loader") : "style-loader!css-loader?localIdentName=[local]-[hash:base64:5]!less-loader"
             },
             {
                 test: /\.(png|jpg)$/,

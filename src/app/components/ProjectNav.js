@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './ProjectNav.less';
+import styles from './ProjectNav.less';
 
 export default function ProjectNav({ type, onChange }) {
     return (
-        <nav className="project-nav">
+        <nav className={styles.projectNav}>
             <ul>
                 <li><button type="button" className={type === 'professional' ? 'active' : null} onClick={() => onChange('professional')}>Professional</button></li>
                 <li><button type="button" className={type === 'personal' ? 'active' : null} onClick={() => onChange('personal')}>Personal</button></li>
