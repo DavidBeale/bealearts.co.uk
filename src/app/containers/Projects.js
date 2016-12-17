@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import ProjectList from '../components/ProjectList';
 import ProjectNav from '../components/ProjectNav';
+import Spinner from '../components/Spinner';
+
+import styles from './Projects.less';
 
 import { selectProjectType, loadProjects } from '../actions';
 
@@ -17,10 +20,16 @@ class Projects extends PureComponent
         const projects = this.props.projects[projectType] || [];
 
         return (
-            <section>
+            <section className={styles.projects}>
                 <ProjectNav type={projectType} onChange={this.props.dispatchSelectProjectType} />
 
-                <ProjectList projects={projects} />
+                { projects.length === 0 ? (
+                    <div className="loading">
+                        <Spinner />
+                    </div>
+                ) : (
+                    <ProjectList projects={projects} />
+                )}
             </section>
         );
     }
