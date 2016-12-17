@@ -16,9 +16,12 @@ export function selectProjectType(projectType) {
 export function loadProjects(projectType) {
     return (dispatch, getState) => {
         const state = getState();
-        const hasProjects = state.projects[projectType] && state.projects[projectType].length !== 0;
+        const hasProjects = Array.isArray(state.projects[projectType])
+            && state.projects[projectType].length !== 0;
 
         if (hasProjects) return;
+
+        dispatch(loadProjectsStarted(projectType));
 
         if (projectType === 'professional') {
             dispatch(loadProfessionalProjects());
@@ -28,18 +31,28 @@ export function loadProjects(projectType) {
     };
 }
 
+const loadProjectsStarted = createAction(LOAD_PROJECTS,
+    projectType => ({ projectType, projects: [] })
+);
+
 const loadProjectsSuccess = createAction(LOAD_PROJECTS,
     (projectType, projects) => ({ projectType, projects })
 );
 
-const loadProjectsFailed = createAction(LOAD_PROJECTS);
+const loadProjectsFailed = createAction(LOAD_PROJECTS,
+    (projectType, error) => {
+        const result = error;
+        result.projectType = projectType;
+        return result;
+    }
+);
 
 
 function loadProfessionalProjects() {
     return (dispatch) => {
         projectsService.getProfessionalProjects()
             .then(results => dispatch(loadProjectsSuccess('professional', results)))
-            .catch(error => dispatch(loadProjectsFailed(error)));
+            .catch(error => dispatch(loadProjectsFailed('professional', error)));
     };
 }
 
@@ -48,7 +61,7 @@ function loadPersonalProjects() {
     return (dispatch) => {
         projectsService.getPersonalProjects()
             .then(results => dispatch(loadProjectsSuccess('personal', results)))
-            .catch(error => dispatch(loadProjectsFailed(error)));
+            .catch(error => dispatch(loadProjectsFailed('personal', error)));
     };
 }
 

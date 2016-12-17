@@ -19,16 +19,27 @@ class Projects extends PureComponent
         const projectType = this.props.projectType;
         const projects = this.props.projects[projectType] || [];
 
+        const isLoading = Array.isArray(projects) && projects.length === 0;
+        const isError = !Array.isArray(projects);
+
+        const retry = () => {
+            this.props.dispatchLoadProjects(projectType);
+        };
+
         return (
             <section className={styles.projects}>
                 <ProjectNav type={projectType} onChange={this.props.dispatchSelectProjectType} />
 
-                { projects.length === 0 ? (
-                    <div className="loading">
-                        <Spinner />
-                    </div>
-                ) : (
+                { !isLoading && !isError ? (
                     <ProjectList projects={projects} />
+                ) : (
+                    <div className="loading">
+                        { isLoading ? (
+                            <Spinner />
+                        ) : (
+                            <p>Failed to load Projects<br /><button className="retry" type="button" onClick={retry}>Retry</button></p>
+                        )}
+                    </div>
                 )}
             </section>
         );

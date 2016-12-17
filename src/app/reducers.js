@@ -11,12 +11,17 @@ const projectType = handleAction(SELECT_PROJECT_TYPE,
 );
 
 
-const projects = handleAction(LOAD_PROJECTS,
-    (state, action) => ({ ...state, [action.payload.projectType]: action.payload.projects }),
-    {
-        professional: [],
-        personal: []
+const projects = handleAction(LOAD_PROJECTS, {
+    next(state, action) {
+        return { ...state, [action.payload.projectType]: action.payload.projects };
+    },
+    throw(state, action) {
+        return { ...state, [action.payload.projectType]: action.payload };
     }
+}, {
+    professional: [],
+    personal: []
+}
 );
 
 
