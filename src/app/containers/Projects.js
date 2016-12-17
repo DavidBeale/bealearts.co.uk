@@ -8,18 +8,8 @@ import { selectProjectType, loadProjects } from '../actions';
 
 class Projects extends PureComponent
 {
-    constructor(props) {
-        super(props);
-
-        this.setProjectType = this.setProjectType.bind(this);
-    }
-
     componentWillMount() {
-        this.props.dispatch(loadProjects(this.props.projectType));
-    }
-
-    setProjectType(projectType) {
-        this.props.dispatch(selectProjectType(projectType));
+        this.props.dispatchLoadProjects(this.props.projectType);
     }
 
     render() {
@@ -28,7 +18,7 @@ class Projects extends PureComponent
 
         return (
             <section>
-                <ProjectNav type={projectType} onChange={this.setProjectType} />
+                <ProjectNav type={projectType} onChange={this.props.dispatchSelectProjectType} />
 
                 <ProjectList projects={projects} />
             </section>
@@ -38,7 +28,8 @@ class Projects extends PureComponent
 
 
 Projects.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    dispatchSelectProjectType: PropTypes.func.isRequired,
+    dispatchLoadProjects: PropTypes.func.isRequired,
     projects: PropTypes.shape(),
     projectType: PropTypes.string
 };
@@ -49,4 +40,10 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(Projects);
+export default connect(
+    mapStateToProps,
+    {
+        dispatchSelectProjectType: selectProjectType,
+        dispatchLoadProjects: loadProjects
+    }
+)(Projects);
