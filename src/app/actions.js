@@ -32,19 +32,18 @@ export function loadProjects(projectType) {
 }
 
 const loadProjectsStarted = createAction(LOAD_PROJECTS,
-    projectType => ({ projectType, projects: [] })
+    () => [],
+    projectType => projectType
 );
 
 const loadProjectsSuccess = createAction(LOAD_PROJECTS,
-    (projectType, projects) => ({ projectType, projects })
+  (projectType, projects) => projects,
+  projectType => projectType
 );
 
 const loadProjectsFailed = createAction(LOAD_PROJECTS,
-    (projectType, error) => {
-        const result = error;
-        result.projectType = projectType;
-        return result;
-    }
+    (projectType, error) => error,
+    projectType => projectType
 );
 
 

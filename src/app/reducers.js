@@ -13,10 +13,10 @@ const projectType = handleAction(SELECT_PROJECT_TYPE,
 
 const projects = handleAction(LOAD_PROJECTS, {
     next(state, action) {
-        return { ...state, [action.payload.projectType]: action.payload.projects };
+        return { ...state, [action.meta]: action.payload };
     },
     throw(state, action) {
-        return { ...state, [action.payload.projectType]: action.payload };
+        return { ...state, [action.meta]: action.payload };
     }
 }, {
     professional: [],
