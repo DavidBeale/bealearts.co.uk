@@ -1,5 +1,6 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ProjectList from '../components/ProjectList';
 import ProjectNav from '../components/ProjectNav';
@@ -37,7 +38,9 @@ class Projects extends PureComponent
                         { isLoading ? (
                             <Spinner />
                         ) : (
-                            <p>Failed to load Projects<br /><button className="retry" type="button" onClick={retry}>Retry</button></p>
+                            <p>Failed to load Projects<br />
+                                <button className="retry" type="button" onClick={retry}>Retry</button>
+                            </p>
                         )}
                     </div>
                 )}

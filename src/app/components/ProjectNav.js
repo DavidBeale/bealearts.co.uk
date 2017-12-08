@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './ProjectNav.less';
 
@@ -15,6 +16,6 @@ export default function ProjectNav({ type, onChange }) {
 
 
 ProjectNav.propTypes = {
-    type: React.PropTypes.string,
-    onChange: React.PropTypes.func
+    type: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 };

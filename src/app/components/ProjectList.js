@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Project from './Project';
 
@@ -16,5 +17,5 @@ export default function ProjectList({ projects }) {
 }
 
 ProjectList.propTypes = {
-    projects: React.PropTypes.arrayOf(React.PropTypes.object)
+    projects: PropTypes.arrayOf(PropTypes.shape()).isRequired
 };

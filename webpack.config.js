@@ -1,7 +1,6 @@
 'use strict';
 
 const webpack = require('webpack');
-const validate = require('webpack-validator');
 const path = require('path');
 const PackageLoadersPlugin = require('webpack-package-loaders-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +9,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = validate({
+module.exports = {
     context: path.join(__dirname, 'src'),
     entry: {
         main: ['./site.js']
@@ -21,32 +20,49 @@ module.exports = validate({
         publicPath: ''
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: isProduction ? 'babel?plugins[]=transform-runtime' : 'react-hot!babel?plugins[]=transform-runtime,cacheDirectory=true',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: [
+                    isProduction ? 'do-nothing-loader' : 'react-hot-loader/webpack',
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            plugins: ['transform-runtime'],
+                            cacheDirectory: !isProduction
+                        }
+                    }//,
+                    // {
+                    //     loader: 'eslint-loader',
+                    //     options: {
+                    //         failOnWarning: isProduction,
+                    //         failOnError: true
+                    //     }
+                    // }
+                ]
             },
             {
                 test: /\.less$/,
-                loader: isProduction ? ExtractTextPlugin.extract("style-loader", "css-loader?localIdentName=[local]-[hash:base64:5]!less-loader") : "style-loader!css-loader?localIdentName=[local]-[hash:base64:5]!less-loader"
+                use: isProduction ? ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader?localIdentName=[local]-[hash:base64:5]!less-loader',
+                        'less-loader'
+                    ]
+                }) : [
+                    'style-loader',
+                    'css-loader?localIdentName=[local]-[hash:base64:5]',
+                    'less-loader'
+                ]
             },
             {
                 test: /\.(png|jpg)$/,
-                loader: "file-loader?name=[path][name].[ext]"
-            },
-            {
-                test: /\.json$/,
-                loader: 'json'
+                use: "file-loader?name=[path][name].[ext]"
             },
             {
                 test: /\.html$/,
-                loader: 'html?interpolate'
-            },
-            {
-                test: /\.js$/,
-                loader: 'eslint-loader',
-                exclude: /node_modules/
+                use: 'html-loader?interpolate'
             }
         ]
     },
@@ -64,19 +80,18 @@ module.exports = validate({
             {from: 'CNAME'}
         ])
     ], [
-        new webpack.optimize.UglifyJsPlugin({minimize: true}),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            sourceMap: true
+        }),
         new webpack.optimize.DedupePlugin(),
         new ExtractTextPlugin('site.css')
     ]),
     devtool: isProduction ? false : 'source-map',
     devServer: {
-        contentBase: '../dist',
-    },
-    eslint: {
-        failOnWarning: isProduction,
-        failOnError: true
+        contentBase: path.join(__dirname, 'dist')
     }
-});
+};
 
 
 function optimize(nonProductionObjects, productionObjects) {

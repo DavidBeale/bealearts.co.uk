@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import languageIcon from './languageIcon';
 
@@ -19,9 +20,9 @@ export default function Project({ project }) {
 
 
 Project.propTypes = {
-    project: React.PropTypes.shape({
-        name: React.PropTypes.string,
-        description: React.PropTypes.string,
-        url: React.PropTypes.string
-    })
+    project: PropTypes.shape({
+        name: PropTypes.string,
+        description: PropTypes.string,
+        url: PropTypes.string
+    }).isRequired
 };
