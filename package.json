@@ -1,7 +1,7 @@
 {
   "name": "bealearts.co.uk",
   "description": "Builds and Deploys the BealeARTS (http://bealearts.co.uk) web site",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/bealearts/bealearts.co.uk.git"
