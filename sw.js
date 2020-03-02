@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.751cf218ff7b078754c7a9d32e0905e5.js"
+  "precache-manifest.5f5b5b10405483219765cd05dbe30858.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -75,7 +75,7 @@ self.__precacheManifest = [
   },
   {
     "url": "home.html",
-    "revision": "3e30acffa443aa7422348009e298320d"
+    "revision": "0cdb1e99febaffcdb554b2797851a6fd"
   },
   {
     "url": "images/avatar.png",
@@ -119,7 +119,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "6d2da426435cbfc3e9eaf0754a660f83"
+    "revision": "76998c0cb844ab9773087f11581e2dd1"
   },
   {
     "url": "site.js",
