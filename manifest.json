@@ -1,0 +1,15 @@
+{
+  "background_color": "black",
+  "description": "BealeARTS.co.uk website",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "343x159",
+      "type": "image/png"
+    }
+  ],
+  "name": "BealeARTS.co.uk",
+  "short_name": "BealeARTS",
+  "start_url": "/"
+}
