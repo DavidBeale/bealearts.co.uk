@@ -12,7 +12,7 @@
         </style>
         <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
         <script>
-          if ('serviceWorker' in navigation) {
+          if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
               navigator.serviceWorker.register('/sw.js');
             });
