@@ -1,5 +1,6 @@
 {
   "background_color": "black",
+  "theme_color": "black",
   "description": "BealeARTS.co.uk website",
   "display": "standalone",
   "icons": [

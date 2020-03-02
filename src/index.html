@@ -11,6 +11,13 @@
             html {display: none;}
         </style>
         <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+        <script>
+          if ('serviceWorker' in navigation) {
+            window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/sw.js');
+            });
+          }
+        </script>
     </head>
     <body>
         ${require('./home.html')}

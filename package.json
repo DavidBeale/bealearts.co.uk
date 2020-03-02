@@ -64,6 +64,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
-    "webpack-package-loaders-plugin": "^3.0.0"
+    "webpack-package-loaders-plugin": "^3.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }

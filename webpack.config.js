@@ -5,7 +5,8 @@ const path = require('path');
 const PackageLoadersPlugin = require('webpack-package-loaders-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -83,6 +84,11 @@ module.exports = {
         ]),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new GenerateSW({
+          swDest: path.join(path.join(__dirname, 'dist/sw.js')),
+          globDirectory: path.join(path.join(__dirname, 'src')),
+          globPatterns: ['**/*.{js,css,html,png}']
         })
     ], [
         new webpack.optimize.UglifyJsPlugin({
