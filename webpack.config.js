@@ -87,8 +87,9 @@ module.exports = {
         }),
         new GenerateSW({
           swDest: path.join(path.join(__dirname, 'dist/sw.js')),
-          globDirectory: path.join(path.join(__dirname, 'src')),
-          globPatterns: ['**/*.{js,css,html,png}']
+          exclude: ['CNAME'],
+          clientsClaim: true,
+          skipWaiting: true
         })
     ], [
         new webpack.optimize.UglifyJsPlugin({
