@@ -4,8 +4,8 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "images/logo.png",
-      "sizes": "343x159",
+      "src": "images/icons/logo-196x196.png",
+      "sizes": "196x196",
       "type": "image/png"
     }
   ],
