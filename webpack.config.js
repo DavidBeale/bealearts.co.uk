@@ -77,7 +77,7 @@ module.exports = {
             template: 'index.html'
         }),
         new CopyWebpackPlugin([
-            {from: 'CNAME'}
+            {from: 'CNAME', from: 'manifest.json'}
         ]),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
