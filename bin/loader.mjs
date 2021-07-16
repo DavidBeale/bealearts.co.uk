@@ -17,7 +17,7 @@ export function resolve(specifier, context, defaultResolve) {
 
   if (runtimeRegex.test(specifier)) {
     return {
-      url: 'file:///Users/david/Projects/static/bin/jsx-runtime.mjs'
+      url: new URL('./jsx-runtime.mjs', import.meta.url).href
     };
   }
 
