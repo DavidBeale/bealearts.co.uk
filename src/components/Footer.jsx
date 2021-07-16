@@ -6,7 +6,7 @@ export default function Footer() {
       height: 2.5rem;
       width: 100%;
       background: #222;
-      color: #777;
+      color: #BBB;
 
       & p {
         padding-top: 10px;

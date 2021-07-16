@@ -20,12 +20,17 @@ for await (const source of sourceStream) {
   if (ext === '.jsx') {
     const targetFilePath = targetPath.replace(ext, '.html');
     render(sourcePath, targetFilePath)
-      .catch(console.error);
+      .catch(error => {
+        console.error(error);
+        process.exit(-1);
+      });
   } else {
     copy(sourcePath, targetPath)
-      .catch(console.error);
+      .catch(error => {
+        console.error(error);
+        process.exit(-1);
+      });
   }
-
 }
 
 async function render(source, target) {
