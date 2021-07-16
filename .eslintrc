@@ -1,18 +1,21 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "node": true
-    },
-    "extends": "airbnb",
-    "rules": {
-        "indent": ["error", 4],
-        "comma-dangle": ["error", "never"],
-        "no-use-before-define": ["off"],
-        "no-unused-vars": ["warn"],
-        "no-prototype-builtins": ["off"],
-        "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
-        "react/jsx-indent": ["error", 4],
-        "react/prefer-stateless-function": ["off"]
-    }
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "no-use-before-define": ["off"],
+    "no-unused-vars": ["warn"],
+    "no-prototype-builtins": ["off"],
+    "import/extensions": ["error", "always"],
+    "react/react-in-jsx-scope": ["off"],
+    "react/no-unknown-property": ["error", { ignore:['class', 'for'] }],
+    "react/prop-types": ["off"],
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelAttributes": ["for"]
+    }],
+  }
 }
