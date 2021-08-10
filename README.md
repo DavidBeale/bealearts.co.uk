@@ -19,5 +19,6 @@ npm test
 
 ## Deploy
 ```shell
-npm run deploy
+npm version patch|minor|major
+git push --follow-tags
 ```
