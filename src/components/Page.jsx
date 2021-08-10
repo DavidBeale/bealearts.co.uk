@@ -1,4 +1,4 @@
-import { aggregate, style } from '../services/CssAggregationService.mjs';
+import { aggregate, aggregateHash, style } from '../services/CssAggregationService.mjs';
 
 export default async function Page({ children }) {
   style(`
@@ -29,7 +29,7 @@ export default async function Page({ children }) {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="BealeARTS - Information Ingenuity" />
-          <meta httpEquiv="Content-Security-Policy" content="script-src 'self';" />
+          <meta httpEquiv="Content-Security-Policy" content={`script-src 'self'; style-src '${aggregateHash()}'`} />
           <title>BealeARTS</title>
           <link rel="manifest" href="manifest.json" />
           <style>{aggregate()}</style>

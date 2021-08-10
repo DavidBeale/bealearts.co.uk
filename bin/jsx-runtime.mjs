@@ -1,3 +1,5 @@
+import { paramCase } from 'param-case';
+
 export async function jsx(comp, props, key) {
   if (typeof comp === 'function') {
     return comp(props);
@@ -9,10 +11,10 @@ export async function jsx(comp, props, key) {
   if (Object.keys(attributes)?.length) {
     const attributesList = Object.entries(attributes)
       .filter(
-        ([key, value]) => value
+        ([, value]) => value
       )
       .map(
-        ([key, value]) => `${key}="${value}"`
+        ([attr, value]) => `${paramCase(attr)}="${value}"`
       )
       .join(' ');
     return `<${comp} ${attributesList}>${childArray.join('')}</${comp}>`;

@@ -14,6 +14,12 @@ export function aggregate() {
   return getDefinitions().join('');
 }
 
+export function aggregateHash() {
+  const css = aggregate();
+  const hash = createHash('sha256').update(css).digest('base64');
+  return `sha256-${hash}`;
+}
+
 export function style(css) {
   const hash = createHash('md5').update(css).digest('hex');
   const uid = getHashes()[hash];
@@ -23,7 +29,6 @@ export function style(css) {
 
   return append(css, hash);
 }
-
 
 function append(css, hash) {
   const uid = `_${shortid.generate()}`;
@@ -67,8 +72,8 @@ function encapsulate(css, uid) {
       prefix: `${uid}-`
     })
   ])
-  .process(css)
-  .css;
+    .process(css)
+    .css;
 }
 
 function transform(prefix, selector, prefixedSelector) {
